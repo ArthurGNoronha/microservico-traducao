@@ -1,0 +1,185 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Tradução",
+    "description": "API para tradução de textos"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor local"
+    }
+  ],
+  "paths": {
+    "/api/translations/": {
+      "post": {
+        "tags": [
+          "Tradução"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslationRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslationRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/translations/{requestId}": {
+      "get": {
+        "tags": [
+          "Tradução"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Tradução"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "translatedText": {
+                    "example": "any"
+                  },
+                  "status": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "InternalServerError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": ""
+          },
+          "message": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "InternalServerError"
+        }
+      },
+      "TranslationRequest": {
+        "type": "object",
+        "properties": {
+          "originalText": {
+            "type": "string",
+            "example": "Janela"
+          },
+          "sourceLanguage": {
+            "type": "string",
+            "example": "pt"
+          },
+          "targetLanguage": {
+            "type": "string",
+            "example": "en"
+          }
+        },
+        "xml": {
+          "name": "TranslationRequest"
+        }
+      },
+      "TranslationStatus": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "example": "1234567890"
+          },
+          "status": {
+            "type": "string",
+            "example": "queued"
+          },
+          "originalText": {
+            "type": "string",
+            "example": "Janela"
+          },
+          "translatedText": {
+            "type": "string",
+            "example": "Window"
+          },
+          "sourceLanguage": {
+            "type": "string",
+            "example": "pt"
+          },
+          "targetLanguage": {
+            "type": "string",
+            "example": "en"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2023-10-01T12:00:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "2023-10-01T12:00:00Z"
+          }
+        },
+        "xml": {
+          "name": "TranslationStatus"
+        }
+      }
+    }
+  }
+}
