@@ -125,15 +125,15 @@
         "properties": {
           "originalText": {
             "type": "string",
-            "example": "Janela"
+            "example": "Dog"
           },
           "sourceLanguage": {
             "type": "string",
-            "example": "pt"
+            "example": "en"
           },
           "targetLanguage": {
             "type": "string",
-            "example": "en"
+            "example": "pt"
           }
         },
         "xml": {

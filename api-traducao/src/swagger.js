@@ -19,9 +19,9 @@ const doc = {
                 message: "",
             },
             TranslationRequest: {
-                originalText: "Janela",
-                sourceLanguage: "pt",
-                targetLanguage: "en",
+                originalText: "Dog",
+                sourceLanguage: "en",
+                targetLanguage: "pt",
             },
             TranslationStatus: {
                 requestId: "1234567890",
